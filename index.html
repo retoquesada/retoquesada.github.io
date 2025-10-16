@@ -1,9 +1,75 @@
 ﻿<!DOCTYPE html>
-<html lang="es">
+<html lang="es" itemscope itemtype="https://schema.org/LocalBusiness">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Atelier Costura - Diseño y Arreglos de Ropa</title>
+    
+    <!-- SEO Meta Tags -->
+    <title>Retoques Ada - Arreglos de Ropa y Diseños Personalizados | Costura Profesional</title>
+    <meta name="description" content="Retoques Ada ofrece servicios profesionales de arreglos de ropa, diseños personalizados, modificaciones y costura. Más de 15 años de experiencia. ¡Presupuesto gratuito!">
+    <meta name="keywords" content="retoques, arreglos de ropa, costura, diseño personalizado, modificaciones, bordados, ropa formal, ajustes, taller de costura, Ada">
+    <meta name="author" content="Retoques Ada">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://retoquesada.github.io/">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://retoquesada.github.io/">
+    <meta property="og:title" content="Retoques Ada - Arreglos de Ropa y Diseños Personalizados">
+    <meta property="og:description" content="Servicios profesionales de costura, arreglos de ropa y diseños personalizados. Más de 15 años de experiencia transformando prendas con calidad y precisión.">
+    <meta property="og:image" content="https://retoquesada.github.io/images/retoques-ada-preview.jpg">
+    <meta property="og:locale" content="es_ES">
+    <meta property="og:site_name" content="Retoques Ada">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://retoquesada.github.io/">
+    <meta property="twitter:title" content="Retoques Ada - Arreglos de Ropa y Diseños Personalizados">
+    <meta property="twitter:description" content="Servicios profesionales de costura, arreglos de ropa y diseños personalizados. Más de 15 años de experiencia.">
+    <meta property="twitter:image" content="https://retoquesada.github.io/images/retoques-ada-preview.jpg">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    
+    <!-- Schema.org Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Retoques Ada",
+      "image": "https://retoquesada.github.io/images/retoques-ada-logo.jpg",
+      "description": "Taller profesional de costura especializado en arreglos de ropa, diseños personalizados y modificaciones. Más de 15 años de experiencia.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Calle Principal 123",
+        "addressLocality": "Ciudad",
+        "postalCode": "Código Postal",
+        "addressCountry": "ES"
+      },
+      "telephone": "+34123456789",
+      "email": "info@retoquesada.com",
+      "url": "https://retoquesada.github.io/",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "19:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Saturday",
+          "opens": "09:00",
+          "closes": "14:00"
+        }
+      ],
+      "serviceType": ["Arreglos de ropa", "Diseño personalizado", "Modificaciones", "Bordados", "Ropa formal", "Ajustes"],
+      "areaServed": "España",
+      "priceRange": "€€"
+    }
+    </script>
+    
     <style>
         * {
             margin: 0;
@@ -257,67 +323,126 @@
 
         /* Contact Section */
         .contact {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
             color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" patternUnits="userSpaceOnUse" width="100" height="100"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.03)"/><circle cx="50" cy="10" r="1" fill="rgba(255,255,255,0.02)"/><circle cx="10" cy="60" r="1" fill="rgba(255,255,255,0.02)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            opacity: 0.5;
         }
 
         .contact h2 {
             color: white;
+            position: relative;
+            z-index: 2;
         }
 
         .contact h2::after {
-            background: white;
+            background: linear-gradient(90deg, #e74c3c, #f39c12);
         }
 
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 2rem;
+            gap: 4rem;
+            margin-top: 3rem;
+            position: relative;
+            z-index: 2;
         }
 
         .contact-info {
-            space-y: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
         }
 
         .contact-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
+            background: rgba(255,255,255,0.08);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border-left: 4px solid #e74c3c;
+            transition: all 0.3s ease;
+            backdrop-filter: blur(10px);
         }
 
-        .contact-icon {
-            font-size: 1.5rem;
-            margin-right: 1rem;
-            width: 40px;
+        .contact-item:hover {
+            background: rgba(255,255,255,0.12);
+            transform: translateX(10px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+        }
+
+        .contact-item h3 {
+            color: #e74c3c;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .contact-item p {
+            margin: 0;
+            opacity: 0.9;
+            line-height: 1.5;
         }
 
         .contact-form {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 15px;
-            backdrop-filter: blur(10px);
+            background: rgba(255,255,255,0.95);
+            padding: 2.5rem;
+            border-radius: 20px;
+            backdrop-filter: blur(15px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        .contact-form h3 {
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            font-size: 1.5rem;
         }
 
         .form-group {
             margin-bottom: 1.5rem;
+            position: relative;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
+            margin-bottom: 0.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            font-size: 0.95rem;
         }
 
         .form-group input,
-        .form-group textarea {
+        .form-group textarea,
+        .form-group select {
             width: 100%;
-            padding: 0.8rem;
-            border: none;
-            border-radius: 8px;
-            background: rgba(255,255,255,0.9);
+            padding: 1rem;
+            border: 2px solid #e9ecef;
+            border-radius: 10px;
+            background: white;
             color: #333;
             font-size: 1rem;
+            transition: all 0.3s ease;
+            font-family: inherit;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #e74c3c;
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.1);
+            transform: translateY(-2px);
         }
 
         .form-group textarea {
@@ -326,20 +451,39 @@
         }
 
         .submit-button {
-            background: white;
-            color: #667eea;
-            padding: 0.8rem 2rem;
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 1rem 2.5rem;
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
             font-weight: bold;
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 1rem;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.3);
         }
 
         .submit-button:hover {
-            background: #f8f9fa;
-            transform: translateY(-2px);
+            background: linear-gradient(135deg, #c0392b 0%, #a93226 100%);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.4);
+        }
+
+        .contact-cta {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .contact-cta p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
         }
 
         /* Footer */
@@ -381,6 +525,44 @@
             h2 {
                 font-size: 2rem;
             }
+
+            .contact-content {
+                gap: 2.5rem;
+            }
+
+            .contact-info {
+                order: 2;
+            }
+
+            .contact-form {
+                order: 1;
+                padding: 2rem;
+            }
+
+            .contact-item {
+                padding: 1.2rem;
+            }
+
+            .contact-item:hover {
+                transform: translateY(-3px);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .contact-form {
+                padding: 1.5rem;
+            }
+
+            .form-group input,
+            .form-group textarea,
+            .form-group select {
+                padding: 0.8rem;
+            }
+
+            .submit-button {
+                padding: 0.9rem 2rem;
+                font-size: 0.95rem;
+            }
         }
 
         /* Smooth Scrolling */
@@ -408,81 +590,82 @@
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <nav class="container">
-            <a href="#home" class="logo"> Atelier Costura</a>
+    <header role="banner">
+        <nav class="container" role="navigation" aria-label="Navegación principal">
+            <a href="#home" class="logo" aria-label="Retoques Ada - Inicio">✂️ Retoques Ada</a>
             <ul class="nav-links">
-                <li><a href="#home">Inicio</a></li>
-                <li><a href="#services">Servicios</a></li>
-                <li><a href="#about">Nosotros</a></li>
-                <li><a href="#gallery">Galería</a></li>
-                <li><a href="#contact">Contacto</a></li>
+                <li><a href="#home" aria-label="Ir al inicio">Inicio</a></li>
+                <li><a href="#services" aria-label="Ver nuestros servicios">Servicios</a></li>
+                <li><a href="#about" aria-label="Conocer sobre nosotros">Nosotros</a></li>
+                <li><a href="#gallery" aria-label="Ver galería de trabajos">Galería</a></li>
+                <li><a href="#contact" aria-label="Información de contacto">Contacto</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <!-- Hero Section -->
-        <section id="home" class="hero">
+        <section id="home" class="hero" role="banner">
             <div class="container">
-                <h1>Diseño y Arreglos de Ropa</h1>
-                <p>Transformamos tus prendas con el cuidado y la precisión que merecen. Desde arreglos simples hasta diseños únicos, hacemos realidad tu visión de la moda.</p>
-                <a href="#contact" class="cta-button">Solicita tu Presupuesto</a>
+                <h1>Retoques Ada - Expertos en Costura y Diseño</h1>
+                <p>Transformamos tus prendas con el cuidado y la precisión que merecen. Desde arreglos simples hasta diseños únicos, hacemos realidad tu visión de la moda con más de 15 años de experiencia.</p>
+                <a href="#contact" class="cta-button" aria-label="Solicitar presupuesto gratuito">🎯 Solicita tu Presupuesto Gratuito</a>
             </div>
         </section>
 
         <!-- Services Section -->
-        <section id="services" class="services">
+        <section id="services" class="services" role="main">
             <div class="container">
-                <h2>Nuestros Servicios</h2>
-                <div class="services-grid">
-                    <div class="service-card">
-                        <div class="service-icon"></div>
+                <h2>Nuestros Servicios Profesionales</h2>
+                <div class="services-grid" role="list">
+                    <article class="service-card" role="listitem">
+                        <div class="service-icon" aria-hidden="true">✂️</div>
                         <h3>Arreglos de Ropa</h3>
-                        <p>Ajustes de tallas, dobladillos, cremalleras, botones y reparaciones generales para que tu ropa favorita te quede perfecta.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"></div>
+                        <p>Ajustes de tallas, dobladillos, cremalleras, botones y reparaciones generales para que tu ropa favorita te quede perfecta. Servicio rápido y profesional.</p>
+                    </article>
+                    <article class="service-card" role="listitem">
+                        <div class="service-icon" aria-hidden="true">👗</div>
                         <h3>Diseño Personalizado</h3>
-                        <p>Creamos prendas únicas según tus gustos y medidas. Desde vestidos de fiesta hasta ropa casual, tu estilo hecho realidad.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"></div>
-                        <h3>Modificaciones</h3>
-                        <p>Transformamos prendas existentes en nuevos diseños. Dale una segunda vida a tu ropa con nuestras modificaciones creativas.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"></div>
+                        <p>Creamos prendas únicas según tus gustos y medidas. Desde vestidos de fiesta hasta ropa casual, tu estilo hecho realidad con materiales de calidad.</p>
+                    </article>
+                    <article class="service-card" role="listitem">
+                        <div class="service-icon" aria-hidden="true">🔄</div>
+                        <h3>Modificaciones Creativas</h3>
+                        <p>Transformamos prendas existentes en nuevos diseños. Dale una segunda vida a tu ropa con nuestras modificaciones creativas y sostenibles.</p>
+                    </article>
+                    <article class="service-card" role="listitem">
+                        <div class="service-icon" aria-hidden="true">🎨</div>
                         <h3>Bordados y Detalles</h3>
-                        <p>Añadimos bordados personalizados, aplicaciones y detalles especiales para hacer tus prendas únicas e irrepetibles.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"></div>
-                        <h3>Ropa Formal</h3>
-                        <p>Especialistas en trajes, vestidos de novia, ropa de ceremonia y prendas formales. Perfección en cada detalle.</p>
-                    </div>
-                    <div class="service-card">
-                        <div class="service-icon"></div>
+                        <p>Añadimos bordados personalizados, aplicaciones y detalles especiales para hacer tus prendas únicas e irrepetibles. Arte textil de alta calidad.</p>
+                    </article>
+                    <article class="service-card" role="listitem">
+                        <div class="service-icon" aria-hidden="true">🤵</div>
+                        <h3>Ropa Formal y Ceremonias</h3>
+                        <p>Especialistas en trajes, vestidos de novia, ropa de ceremonia y prendas formales. Perfección en cada detalle para tus momentos especiales.</p>
+                    </article>
+                    <article class="service-card" role="listitem">
+                        <div class="service-icon" aria-hidden="true">📏</div>
                         <h3>Ajuste Perfecto</h3>
-                        <p>Análisis profesional de tu figura para conseguir el ajuste perfecto. Tu comodidad y estilo son nuestra prioridad.</p>
-                    </div>
+                        <p>Análisis profesional de tu figura para conseguir el ajuste perfecto. Tu comodidad y estilo son nuestra prioridad absoluta.</p>
+                    </article>
                 </div>
             </div>
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about">
+        <section id="about" class="about" role="complementary">
             <div class="container">
                 <div class="about-content">
                     <div class="about-text">
-                        <h2>Sobre Nosotros</h2>
-                        <p>Con más de 15 años de experiencia en el mundo de la costura y el diseño, nuestro atelier se ha convertido en la referencia de confianza para quienes buscan calidad y personalización.</p>
-                        <p>Trabajamos con las mejores telas y materiales, utilizando técnicas tradicionales combinadas con las últimas tendencias de la moda. Cada prenda que pasa por nuestras manos recibe la atención y el cuidado que merece.</p>
-                        <p>Nuestro compromiso es hacer que te sientas único y especial con cada prenda que diseñamos o arreglamos para ti.</p>
+                        <h2>Sobre Retoques Ada</h2>
+                        <p><strong>Con más de 15 años de experiencia</strong> en el mundo de la costura y el diseño, Retoques Ada se ha convertido en la referencia de confianza para quienes buscan calidad, profesionalidad y personalización en cada trabajo.</p>
+                        <p>Trabajamos con las mejores telas y materiales, utilizando <em>técnicas tradicionales de costura</em> combinadas con las últimas tendencias de la moda. Cada prenda que pasa por nuestras manos recibe la atención y el cuidado artesanal que merece.</p>
+                        <p>En Retoques Ada, nuestro compromiso es hacer que te sientas único y especial con cada prenda que diseñamos, modificamos o arreglamos para ti. <strong>Tu satisfacción es nuestro mayor orgullo.</strong></p>
                     </div>
                     <div class="about-image">
-                        <div class="about-placeholder">
-                             Espacio para imagen del taller
+                        <div class="about-placeholder" role="img" aria-label="Imagen del taller de costura Retoques Ada">
+                            🏠 Taller Retoques Ada<br>
+                            <small>Espacio profesional equipado con la mejor maquinaria</small>
                         </div>
                     </div>
                 </div>
@@ -511,61 +694,61 @@
         <section id="contact" class="contact">
             <div class="container">
                 <h2>Contacta con Nosotros</h2>
+                <div class="contact-cta">
+                    <p>¿Tienes una prenda que necesita arreglos o una idea de diseño? ¡Estamos aquí para ayudarte a hacerla realidad!</p>
+                </div>
                 <div class="contact-content">
                     <div class="contact-info">
                         <div class="contact-item">
-                            <div class="contact-icon"></div>
-                            <div>
-                                <h3>Dirección</h3>
-                                <p>Calle Principal 123<br>Ciudad, Código Postal</p>
-                            </div>
+                            <h3>📍 Dirección</h3>
+                            <p>Calle Principal 123<br>Ciudad, Código Postal</p>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon"></div>
-                            <div>
-                                <h3>Teléfono</h3>
-                                <p>+34 123 456 789</p>
-                            </div>
+                            <h3>📞 Teléfono</h3>
+                            <p><a href="tel:+34123456789" style="color: white; text-decoration: none;">+34 123 456 789</a></p>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon"></div>
-                            <div>
-                                <h3>Email</h3>
-                                <p>info@ateliercostura.com</p>
-                            </div>
+                            <h3>✉️ Email</h3>
+                            <p><a href="mailto:info@retoquesada.com" style="color: white; text-decoration: none;">info@retoquesada.com</a></p>
                         </div>
                         <div class="contact-item">
-                            <div class="contact-icon"></div>
-                            <div>
-                                <h3>Horario</h3>
-                                <p>Lunes a Viernes: 9:00 - 19:00<br>Sábados: 9:00 - 14:00</p>
-                            </div>
+                            <h3>🕒 Horario de Atención</h3>
+                            <p>Lunes a Viernes: 9:00 - 19:00<br>Sábados: 9:00 - 14:00<br>Domingos: Cerrado</p>
                         </div>
                     </div>
                     <div class="contact-form">
-                        <h3>Solicita tu Presupuesto</h3>
-                        <form action="#" method="POST">
+                        <h3>💬 Solicita tu Presupuesto Gratuito</h3>
+                        <form action="#" method="POST" itemscope itemtype="https://schema.org/ContactForm">
                             <div class="form-group">
-                                <label for="name">Nombre Completo</label>
-                                <input type="text" id="name" name="name" required>
+                                <label for="name">Nombre Completo *</label>
+                                <input type="text" id="name" name="name" required placeholder="Tu nombre completo">
                             </div>
                             <div class="form-group">
-                                <label for="email">Email</label>
-                                <input type="email" id="email" name="email" required>
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" required placeholder="tu@email.com">
                             </div>
                             <div class="form-group">
                                 <label for="phone">Teléfono</label>
-                                <input type="tel" id="phone" name="phone">
+                                <input type="tel" id="phone" name="phone" placeholder="+34 600 000 000">
                             </div>
                             <div class="form-group">
                                 <label for="service">Tipo de Servicio</label>
-                                <input type="text" id="service" name="service" placeholder="Ej: Arreglo de pantalón, Diseño de vestido...">
+                                <select id="service" name="service">
+                                    <option value="">Selecciona un servicio</option>
+                                    <option value="arreglos">Arreglos de Ropa</option>
+                                    <option value="diseno">Diseño Personalizado</option>
+                                    <option value="modificaciones">Modificaciones</option>
+                                    <option value="bordados">Bordados y Detalles</option>
+                                    <option value="formal">Ropa Formal</option>
+                                    <option value="ajuste">Ajuste Perfecto</option>
+                                    <option value="otro">Otro</option>
+                                </select>
                             </div>
                             <div class="form-group">
                                 <label for="message">Describe tu Proyecto</label>
-                                <textarea id="message" name="message" placeholder="Cuéntanos qué necesitas y te daremos el mejor presupuesto..."></textarea>
+                                <textarea id="message" name="message" placeholder="Cuéntanos en detalle qué necesitas: tipo de prenda, tallas, colores, fecha aproximada... Mientras más detalles nos proporciones, mejor podremos ayudarte con tu presupuesto."></textarea>
                             </div>
-                            <button type="submit" class="submit-button">Enviar Consulta</button>
+                            <button type="submit" class="submit-button">Enviar Consulta Gratuita</button>
                         </form>
                     </div>
                 </div>
@@ -574,9 +757,13 @@
     </main>
 
     <!-- Footer -->
-    <footer>
+    <footer role="contentinfo">
         <div class="container">
-            <p>&copy; 2024 Atelier Costura. Todos los derechos reservados. | Diseño y arreglos de ropa con pasión y dedicación.</p>
+            <p>&copy; 2024 <strong>Retoques Ada</strong>. Todos los derechos reservados. | Diseño y arreglos de ropa con pasión y dedicación desde hace más de 15 años.</p>
+            <p style="margin-top: 0.5rem; font-size: 0.9rem; opacity: 0.8;">
+                <a href="tel:+34123456789" style="color: white; text-decoration: none;">📞 +34 123 456 789</a> | 
+                <a href="mailto:info@retoquesada.com" style="color: white; text-decoration: none;">✉️ info@retoquesada.com</a>
+            </p>
         </div>
     </footer>
 

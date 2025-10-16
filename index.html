@@ -1,235 +1,624 @@
-<!doctype html>
+﻿<!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Arreglos Ada · Retoques de Moda en tu barrio</title>
-  <meta name="description" content="Arreglos de ropa, bajos, cremalleras y ajustes a medida. Atención cercana y precios claros. Pide cita por WhatsApp o teléfono." />
-  <meta property="og:title" content="Arreglos Ada · Retoques de Moda" />
-  <meta property="og:description" content="Arreglos de ropa, bajos, cremalleras y ajustes a medida. Atención cercana y precios claros." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="/og-image.jpg" />
-  <meta name="theme-color" content="#111827" />
-  <link rel="icon" href="/favicon.ico" />
-  <style>
-    :root{
-      --bg:#0b1020;          /* fondo oscuro elegante */
-      --card:#151a2f;        /* tarjetas */
-      --text:#f8fafc;        /* texto principal */
-      --muted:#cbd5e1;       /* texto secundario */
-      --brand:#8b5cf6;       /* acento violeta suave */
-      --brand-contrast:#ede9fe;
-      --ok:#22c55e;
-      --shadow:0 10px 30px rgba(0,0,0,.25);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0; font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Inter,Helvetica,Arial,sans-serif;
-      background: radial-gradient(1200px 600px at 80% -10%, rgba(139,92,246,.12), transparent 60%),
-                  radial-gradient(1000px 500px at 10% 110%, rgba(16,185,129,.12), transparent 60%),
-                  var(--bg);
-      color:var(--text); line-height:1.6;
-    }
-    a{color:var(--brand)} a:hover{opacity:.9}
-    header{position:sticky;top:0;backdrop-filter:saturate(180%) blur(12px);background:rgba(11,16,32,.6);border-bottom:1px solid rgba(255,255,255,.06);z-index:50}
-    .wrap{max-width:1080px;margin:0 auto;padding:0 20px}
-    .nav{display:flex;align-items:center;justify-content:space-between;padding:14px 0}
-    .logo{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.3px}
-    .logo-mark{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),#10b981);display:grid;place-items:center;box-shadow:var(--shadow)}
-    .logo-mark svg{filter:drop-shadow(0 2px 6px rgba(0,0,0,.3))}
-    nav a{margin:0 10px;text-decoration:none;color:var(--text);opacity:.9}
-    nav a:hover, nav a:focus{opacity:1}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Atelier Costura - Diseño y Arreglos de Ropa</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    .hero{display:grid;gap:22px;grid-template-columns:1.1fr .9fr;align-items:center; padding:64px 0 36px}
-    .hero h1{font-size:clamp(28px,4vw,44px);line-height:1.15;margin:0}
-    .hero p{color:var(--muted);margin:0}
-    .card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); padding:22px; box-shadow:var(--shadow)}
-    .cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:14px}
-    .btn{appearance:none;border:none;border-radius:14px;padding:12px 16px;font-weight:600;cursor:pointer}
-    .btn-primary{background:linear-gradient(180deg,var(--brand),#7c3aed);color:var(--brand-contrast)}
-    .btn-outline{background:transparent;border:1px solid rgba(255,255,255,.2);color:var(--text)}
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f8f9fa;
+        }
 
-    section{padding:36px 0}
-    h2{font-size:clamp(22px,3vw,30px);margin:0 0 14px}
-    .grid{display:grid;gap:16px}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
 
-    .service{display:flex;gap:12px;align-items:flex-start;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:14px;padding:14px}
-    .service b{display:block}
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
 
-    .prices table{width:100%;border-collapse:separate;border-spacing:0 10px}
-    .prices td{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);padding:12px 14px}
-    .prices td:first-child{border-top-left-radius:12px;border-bottom-left-radius:12px}
-    .prices td:last-child{border-top-right-radius:12px;border-bottom-right-radius:12px;text-align:right;color:#a7f3d0}
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
 
-    .contact{display:grid;gap:16px;grid-template-columns:1.2fr .8fr}
-    .contact .card p{margin:.2rem 0}
-    form{display:grid;gap:10px}
-    input,textarea{width:100%;padding:12px 14px;border-radius:12px;border:1px solid rgba(255,255,255,.12);background:rgba(255,255,255,.04);color:var(--text)}
-    textarea{min-height:110px;resize:vertical}
+        .logo {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+        }
 
-    footer{padding:30px 0; color:#a5b4fc; border-top:1px solid rgba(255,255,255,.08); margin-top:20px}
-    .legal a{color:#c7d2fe;opacity:.85}
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
 
-    @media (max-width:900px){
-      .hero{grid-template-columns:1fr}
-      .contact{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
-    }
-  </style>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "LocalBusiness",
-    "name": "Arreglos Ada",
-    "description": "Retoques de moda, bajos, cremalleras y ajustes a medida.",
-    "address": {"@type":"PostalAddress","streetAddress":"Calle Ejemplo 123","addressLocality":"Tu Ciudad","addressRegion":"","postalCode":"00000","addressCountry":"ES"},
-    "telephone": "+34 600 000 000",
-    "areaServed": "Tu Ciudad",
-    "openingHours": ["Mo-Fr 10:00-14:00","Mo-Fr 17:00-20:00","Sa 10:00-13:30"],
-    "url": "https://tudominio.com"
-  }
-  </script>
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: #f8f9fa;
+            text-shadow: 0 0 5px rgba(255,255,255,0.5);
+        }
+
+        /* Main Content */
+        main {
+            margin-top: 80px;
+        }
+
+        section {
+            padding: 4rem 0;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 1rem;
+            color: #2c3e50;
+        }
+
+        h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            margin: 0.5rem auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .hero h1 {
+            color: white;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: white;
+            color: #667eea;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
+        }
+
+        /* Services Section */
+        .services {
+            background: white;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .service-card {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #667eea;
+        }
+
+        .service-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+
+        .service-card p {
+            color: #6c757d;
+            line-height: 1.6;
+        }
+
+        /* About Section */
+        .about {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: white;
+        }
+
+        .about-text h2::after {
+            background: white;
+        }
+
+        .about-image {
+            text-align: center;
+        }
+
+        .about-placeholder {
+            width: 100%;
+            max-width: 400px;
+            height: 300px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: white;
+            border: 2px dashed rgba(255,255,255,0.5);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background: white;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .gallery-item {
+            height: 250px;
+            background: linear-gradient(45deg, #e9ecef, #dee2e6);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #6c757d;
+            font-size: 1.1rem;
+            transition: transform 0.3s ease;
+            border: 2px dashed #adb5bd;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .contact h2 {
+            color: white;
+        }
+
+        .contact h2::after {
+            background: white;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+
+        .contact-info {
+            space-y: 1.5rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            width: 40px;
+        }
+
+        .contact-form {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 8px;
+            background: rgba(255,255,255,0.9);
+            color: #333;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-button {
+            background: white;
+            color: #667eea;
+            padding: 0.8rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .submit-button:hover {
+            background: #f8f9fa;
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .about-content,
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Smooth Scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .service-card,
+        .gallery-item {
+            animation: fadeInUp 0.6s ease-out;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="wrap nav">
-      <div class="logo" aria-label="Arreglos Ada">
-        <div class="logo-mark" aria-hidden="true">
-          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="icono aguja e hilo">
-            <path d="M18 2c-3 9-9 12-9 16a5 5 0 0 0 10 0c0-3-2-5-5-5-4 0-7 3-7 7" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-          </svg>
+    <!-- Header -->
+    <header>
+        <nav class="container">
+            <a href="#home" class="logo"> Atelier Costura</a>
+            <ul class="nav-links">
+                <li><a href="#home">Inicio</a></li>
+                <li><a href="#services">Servicios</a></li>
+                <li><a href="#about">Nosotros</a></li>
+                <li><a href="#gallery">Galería</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="container">
+                <h1>Diseño y Arreglos de Ropa</h1>
+                <p>Transformamos tus prendas con el cuidado y la precisión que merecen. Desde arreglos simples hasta diseños únicos, hacemos realidad tu visión de la moda.</p>
+                <a href="#contact" class="cta-button">Solicita tu Presupuesto</a>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Nuestros Servicios</h2>
+                <div class="services-grid">
+                    <div class="service-card">
+                        <div class="service-icon"></div>
+                        <h3>Arreglos de Ropa</h3>
+                        <p>Ajustes de tallas, dobladillos, cremalleras, botones y reparaciones generales para que tu ropa favorita te quede perfecta.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"></div>
+                        <h3>Diseño Personalizado</h3>
+                        <p>Creamos prendas únicas según tus gustos y medidas. Desde vestidos de fiesta hasta ropa casual, tu estilo hecho realidad.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"></div>
+                        <h3>Modificaciones</h3>
+                        <p>Transformamos prendas existentes en nuevos diseños. Dale una segunda vida a tu ropa con nuestras modificaciones creativas.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"></div>
+                        <h3>Bordados y Detalles</h3>
+                        <p>Añadimos bordados personalizados, aplicaciones y detalles especiales para hacer tus prendas únicas e irrepetibles.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"></div>
+                        <h3>Ropa Formal</h3>
+                        <p>Especialistas en trajes, vestidos de novia, ropa de ceremonia y prendas formales. Perfección en cada detalle.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon"></div>
+                        <h3>Ajuste Perfecto</h3>
+                        <p>Análisis profesional de tu figura para conseguir el ajuste perfecto. Tu comodidad y estilo son nuestra prioridad.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <div class="about-content">
+                    <div class="about-text">
+                        <h2>Sobre Nosotros</h2>
+                        <p>Con más de 15 años de experiencia en el mundo de la costura y el diseño, nuestro atelier se ha convertido en la referencia de confianza para quienes buscan calidad y personalización.</p>
+                        <p>Trabajamos con las mejores telas y materiales, utilizando técnicas tradicionales combinadas con las últimas tendencias de la moda. Cada prenda que pasa por nuestras manos recibe la atención y el cuidado que merece.</p>
+                        <p>Nuestro compromiso es hacer que te sientas único y especial con cada prenda que diseñamos o arreglamos para ti.</p>
+                    </div>
+                    <div class="about-image">
+                        <div class="about-placeholder">
+                             Espacio para imagen del taller
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery">
+            <div class="container">
+                <h2>Nuestros Trabajos</h2>
+                <div class="gallery-grid">
+                    <div class="gallery-item"> Antes/Después 1</div>
+                    <div class="gallery-item"> Diseño Personalizado 1</div>
+                    <div class="gallery-item"> Arreglo de Vestido</div>
+                    <div class="gallery-item"> Traje a Medida</div>
+                    <div class="gallery-item"> Bordado Personalizado</div>
+                    <div class="gallery-item"> Modificación Creativa</div>
+                </div>
+                <p style="text-align: center; margin-top: 2rem; color: #6c757d; font-style: italic;">
+                    * Las imágenes de muestra se añadirán próximamente con ejemplos reales de nuestros trabajos.
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Contacta con Nosotros</h2>
+                <div class="contact-content">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <div>
+                                <h3>Dirección</h3>
+                                <p>Calle Principal 123<br>Ciudad, Código Postal</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <div>
+                                <h3>Teléfono</h3>
+                                <p>+34 123 456 789</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <div>
+                                <h3>Email</h3>
+                                <p>info@ateliercostura.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"></div>
+                            <div>
+                                <h3>Horario</h3>
+                                <p>Lunes a Viernes: 9:00 - 19:00<br>Sábados: 9:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Solicita tu Presupuesto</h3>
+                        <form action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name">Nombre Completo</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Teléfono</label>
+                                <input type="tel" id="phone" name="phone">
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Tipo de Servicio</label>
+                                <input type="text" id="service" name="service" placeholder="Ej: Arreglo de pantalón, Diseño de vestido...">
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Describe tu Proyecto</label>
+                                <textarea id="message" name="message" placeholder="Cuéntanos qué necesitas y te daremos el mejor presupuesto..."></textarea>
+                            </div>
+                            <button type="submit" class="submit-button">Enviar Consulta</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Atelier Costura. Todos los derechos reservados. | Diseño y arreglos de ropa con pasión y dedicación.</p>
         </div>
-        <span>Arreglos Ada</span>
-      </div>
-      <nav>
-        <a href="#inicio">Inicio</a>
-        <a href="#servicios">Servicios</a>
-        <a href="#precios">Precios</a>
-        <a href="#contacto">Contacto</a>
-      </nav>
-    </div>
-  </header>
+    </footer>
 
-  <main class="wrap">
-    <section id="inicio" class="hero">
-      <div>
-        <h1>Retoques de moda con cariño y detalle ✂️</h1>
-        <p>Arreglamos bajos, cremalleras, pinzas, entalles y todo tipo de ajustes para que tu prenda siente perfecta. Atención cercana para gente de toda la vida.</p>
-        <div class="cta">
-          <a class="btn btn-primary" href="https://wa.me/34600000000?text=Hola%20Ada%2C%20me%20gustar%C3%ADa%20preguntar%20por%20un%20arreglo" target="_blank" rel="noopener" aria-label="Abrir WhatsApp">
-            📲 WhatsApp
-          </a>
-          <a class="btn btn-outline" href="tel:+34600000000" aria-label="Llamar por teléfono">📞 Llamar</a>
-          <a class="btn btn-outline" href="#contacto" aria-label="Ir a contacto">✉️ Escribir</a>
-        </div>
-      </div>
-      <div class="card" aria-label="Foto de trabajo">
-        <picture>
-          <source srcset="/cover.webp" type="image/webp" />
-          <img src="/cover.jpg" alt="Costurera ajustando los bajos de un pantalón" style="width:100%;border-radius:14px;display:block" />
-        </picture>
-        <p style="margin:.6rem 0 0;color:var(--muted);font-size:.95rem">Trae tu prenda y te asesoramos al momento. Sin complicaciones.</p>
-      </div>
-    </section>
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
 
-    <section id="servicios">
-      <h2>Servicios principales</h2>
-      <div class="grid grid-3">
-        <div class="service"><div>🧵</div><div><b>Bajos</b><span>Vaqueros, traje y vestido. Dobladillo limpio y a la medida.</span></div></div>
-        <div class="service"><div>🧷</div><div><b>Ajustes y entalles</b><span>Entallar en cintura, pinzas y hombros para mejor caída.</span></div></div>
-        <div class="service"><div>🪡</div><div><b>Cremalleras</b><span>Cambio de cremalleras en pantalones, faldas, abrigos y bolsos.</span></div></div>
-        <div class="service"><div>👗</div><div><b>Arreglo de vestidos</b><span>Novia, fiesta y diario. Ajustes finos con prueba.</span></div></div>
-        <div class="service"><div>🧥</div><div><b>Mangas y largos</b><span>Acortamos o alargamos mangas y bajos con terminación original.</span></div></div>
-        <div class="service"><div>🪙</div><div><b>Pequeños arreglos</b><span>Botones, descosidos, parches y ojales.</span></div></div>
-      </div>
-    </section>
+        // Form submission handling
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por tu consulta! Te contactaremos pronto para darte más información y un presupuesto personalizado.');
+        });
 
-    <section id="precios" class="prices">
-      <h2>Precios orientativos</h2>
-      <table aria-label="Tabla de precios orientativos">
-        <tr><td>Bajo pantalón vaquero</td><td>desde 8€</td></tr>
-        <tr><td>Acortar vestido sencillo</td><td>desde 12€</td></tr>
-        <tr><td>Cambiar cremallera pantalón</td><td>desde 10€</td></tr>
-        <tr><td>Entallar cintura</td><td>desde 10€</td></tr>
-        <tr><td>Botón / pequeño arreglo</td><td>desde 3€</td></tr>
-      </table>
-      <p style="color:var(--muted);margin-top:.4rem">*El precio final se confirma al ver la prenda. Presupuesto sin compromiso.</p>
-    </section>
+        // Add animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-    <section id="contacto" class="contact">
-      <div class="card">
-        <h2>Contacto</h2>
-        <p><b>Teléfono:</b> <a href="tel:+34600000000">+34 600 000 000</a></p>
-        <p><b>WhatsApp:</b> <a href="https://wa.me/34600000000" target="_blank" rel="noopener">chatear</a></p>
-        <p><b>Email:</b> <a href="mailto:hola@tudominio.com">hola@tudominio.com</a></p>
-        <p><b>Dirección:</b> Calle Ejemplo 123, Tu Ciudad</p>
-        <p><b>Horario:</b> L–V 10:00–14:00 / 17:00–20:00 · S 10:00–13:30</p>
-        <div style="margin-top:10px">
-          <a class="btn btn-primary" href="https://wa.me/34600000000?text=Hola%20Ada%2C%20quisiera%20pedir%20cita" target="_blank" rel="noopener">Pedir cita por WhatsApp</a>
-        </div>
-      </div>
-      <div class="card">
-        <h2>Escríbeme</h2>
-        <form id="formContacto" aria-label="Formulario de contacto">
-          <label>
-            <span class="sr">Nombre</span>
-            <input type="text" name="nombre" placeholder="Nombre" required />
-          </label>
-          <label>
-            <span class="sr">Teléfono</span>
-            <input type="tel" name="telefono" placeholder="Teléfono" required />
-          </label>
-          <label>
-            <span class="sr">Mensaje</span>
-            <textarea name="mensaje" placeholder="¿Qué te gustaría arreglar?" required></textarea>
-          </label>
-          <button class="btn btn-primary" type="submit">Enviar</button>
-          <p id="msg" role="status" aria-live="polite" style="margin:6px 0 0;color:var(--muted)"></p>
-        </form>
-      </div>
-    </section>
-  </main>
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
 
-  <footer>
-    <div class="wrap" style="display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap">
-      <small>© <span id="year"></span> Arreglos Ada · Hecho con cariño ✨</small>
-      <div class="legal" style="display:flex;gap:14px">
-        <a href="#" aria-label="Aviso legal">Aviso legal</a>
-        <a href="#" aria-label="Política de privacidad">Privacidad</a>
-        <a href="#" aria-label="Cookies">Cookies</a>
-      </div>
-    </div>
-  </footer>
-
-  <script>
-    // año actual en el pie
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // formulario sencillo: abre email pre-relleno (sin backend)
-    const form = document.getElementById('formContacto');
-    form.addEventListener('submit', (e)=>{
-      e.preventDefault();
-      const data = new FormData(form);
-      const nombre = encodeURIComponent(data.get('nombre'));
-      const telefono = encodeURIComponent(data.get('telefono'));
-      const mensaje = encodeURIComponent(data.get('mensaje'));
-      const asunto = `Consulta web – ${decodeURIComponent(nombre)}`;
-      const cuerpo = `Nombre: ${decodeURIComponent(nombre)}%0A`+
-                     `Teléfono: ${decodeURIComponent(telefono)}%0A`+
-                     `Mensaje: ${decodeURIComponent(mensaje)}`;
-      window.location.href = `mailto:hola@tudominio.com?subject=${encodeURIComponent(asunto)}&body=${cuerpo}`;
-      document.getElementById('msg').textContent = 'Abriendo tu app de correo para enviar el mensaje…';
-    });
-
-    // Accesibilidad: clase sr para etiquetas ocultas visualmente
-    const style = document.createElement('style');
-    style.textContent = `.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}`;
-    document.head.appendChild(style);
-  </script>
+        // Observe service cards and gallery items
+        document.querySelectorAll('.service-card, .gallery-item').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(30px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
+        });
+    </script>
 </body>
 </html>
